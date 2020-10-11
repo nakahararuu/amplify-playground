@@ -1,0 +1,12 @@
+type Product @model
+  @auth(rules: [
+        { allow: owner },
+        { allow: private, operations: [read] },
+        { allow: public, operations: [read] }
+    ]) {
+    id: ID!
+    name: String!
+    description: String
+    price: Int
+    image: String
+}
